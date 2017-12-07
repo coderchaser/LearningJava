@@ -1,4 +1,4 @@
-package jigsaw;
+package com.bobliao;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -23,12 +23,12 @@ public class JigSaw {
 	private JFrame frame=new JFrame();
 	private JPanel panel1=new JPanel();
 	private JPanel panel2=new JPanel();
-	private JButton startButton=new JButton("¿ªÊ¼ÓÎÏ·");
-	private JButton gameAgain= new JButton("ÔÙÀ´Ò»´Î");
+	private JButton startButton=new JButton("å¼€å§‹æ¸¸æˆ");
+	private JButton gameAgain= new JButton("å†æ¥ä¸€æ¬¡");
 	private JButton[] buttons=new JButton[N];
 	public JigSaw(){
 		this.setInitState();
-		//³õÊ¼»¯
+		//ï¿½ï¿½Ê¼ï¿½ï¿½
 		this.panel2.add(startButton);
 		this.panel2.add(gameAgain);
 		this.frame.setLayout(new BorderLayout());
@@ -36,7 +36,7 @@ public class JigSaw {
 		this.frame.add(panel2,BorderLayout.SOUTH);
 		frame.setSize(350, 400);
 		frame.setLocation(400, 200);
-		frame.setTitle("Êý×ÖÆ´Í¼ÓÎÏ·");
+		frame.setTitle("ï¿½ï¿½ï¿½ï¿½Æ´Í¼ï¿½ï¿½Ï·");
 		frame.setVisible(true);
 		this.startButton.addActionListener((e) -> {
 			startButtonClicked();
@@ -55,7 +55,7 @@ public class JigSaw {
 		}
 	}
 	private void buttonClicked(JButton bt,int j){
-		//TODO Ã¿¸ö¿ì±»°´ÏÂµÄÏìÓ¦
+		//TODO Ã¿ï¿½ï¿½ï¿½ì±»ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Ó¦
 		int pose=getPose(bt);
 		int blankPose=getBlankPose();
 		if (blankPose==pose-1 | blankPose==pose+1 | blankPose== pose+4 | blankPose== pose-4) {
@@ -66,8 +66,8 @@ public class JigSaw {
 		}
 		step++;
 		if(checkEnd()){
-			//Âèµ°£¬ÎÒºÃÏñÍæ²»µ½×îºó°¡£¬×½¼¦¡£Õâ¸ö½çÃæ¾Í²»×ÐÏ¸Ð´ÁË~~
-			String message= String.format("¹§Ï²£¬Æ´Í¼Íê³É£¬µã»÷ÔÙÀ´Ò»´Î¼´¿ÉÔÙÍæÒ»´Î£¡ÄãÒ»¹²ÓÃÁË %d²½¡£",this.step);
+			//ï¿½èµ°ï¿½ï¿½ï¿½Òºï¿½ï¿½ï¿½ï¿½æ²»ï¿½ï¿½ï¿½ï¿½ó°¡£ï¿½×½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½Ï¸Ð´ï¿½ï¿½~~
+			String message= String.format("ï¿½ï¿½Ï²ï¿½ï¿½Æ´Í¼ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %dï¿½ï¿½ï¿½ï¿½",this.step);
 			JOptionPane.showMessageDialog(null,message);
 		}
 	}
@@ -91,7 +91,7 @@ public class JigSaw {
 		return true;
 	}
 	private void startButtonClicked() {
-		//´òÂÒ¿éÖ®¼äµÄË³Ðò
+		//ï¿½ï¿½ï¿½Ò¿ï¿½Ö®ï¿½ï¿½ï¿½Ë³ï¿½ï¿½
 		ArrayList<Integer> blockList1=new ArrayList<Integer>();
 		for (int i:blockList){
 			blockList1.add(i);
