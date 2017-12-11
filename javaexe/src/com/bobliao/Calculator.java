@@ -17,6 +17,9 @@ public class Calculator extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private JTextField display= new JTextField();
 	private JButton reset= new JButton("CE");
+	private String initNumber="";
+	double number=0.0;
+	private double result=0.0;
 	private String[] buttonStr={
 		"7","8","9","/",
 		"4","5","6","*",		
@@ -76,16 +79,38 @@ public class Calculator extends JFrame implements ActionListener{
 		}
 	}
 	private void handleReset(){
-		
+		this.initNumber="";
+		this.result=0.0;
+		this.number=0.0; 
+		this.display.setText(this.initNumber);
 	}
 	private void handleNumberPoint(String cmd){
-		
+		this.initNumber+=cmd;
+		this.display.setText(this.initNumber);
 	}
 	private void handleJtextField(String cmd){
-		
+	
 	}
 	private void handleOperator(String cmd){
+		this.number=Double.parseDouble(this.initNumber);
+		System.out.println(number);
+		switch (cmd) {
+		case "+":
+			this.result+=number;
+			break;
+		case "-":
+			this.result-=number;
+		case "*":
+			this.result*=number;
+		case "/":
+			this.result/=number;
+		case "=" : 
+			this.display.setText(String.valueOf(this.result));
+		default:
+			break;
 		
+		}
+		this.initNumber="";
 	}
 	public static void main(String args[]) {
 		new Calculator();
