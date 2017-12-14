@@ -19,6 +19,7 @@ public class Calculator extends JFrame implements ActionListener{
 	private JButton reset= new JButton("CE");
 	private String initNumber="";
 	double number=0.0;
+	private String operator="=";
 	private double result=0.0;
 	private String[] buttonStr={
 		"7","8","9","/",
@@ -81,6 +82,7 @@ public class Calculator extends JFrame implements ActionListener{
 	private void handleReset(){
 		this.initNumber="";
 		this.result=0.0;
+		this.operator="=";
 		this.number=0.0; 
 		this.display.setText(this.initNumber);
 	}
@@ -93,23 +95,27 @@ public class Calculator extends JFrame implements ActionListener{
 	}
 	private void handleOperator(String cmd){
 		this.number=Double.parseDouble(this.initNumber);
-		System.out.println(number);
-		switch (cmd) {
+		switch (this.operator) {
 		case "+":
 			this.result+=number;
 			break;
 		case "-":
 			this.result-=number;
+			break;
 		case "*":
 			this.result*=number;
+			break;
 		case "/":
 			this.result/=number;
+			break;
 		case "=" : 
-			this.display.setText(String.valueOf(this.result));
+			this.result=number;
 		default:
 			break;
 		
 		}
+		this.operator=cmd;
+		this.display.setText(String.valueOf(this.result));
 		this.initNumber="";
 	}
 	public static void main(String args[]) {
